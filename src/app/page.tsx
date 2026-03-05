@@ -1,5 +1,4 @@
 import CardPreview from "@/components/CardPreview";
-import { themes } from "@/lib/themes";
 
 const PARAMS = [
   {
@@ -117,34 +116,34 @@ export default function Home() {
       {/* ─── Hero ─── */}
       <section className="border-b border-[#21262d] bg-gradient-to-b from-[#010409] to-[#0d1117]">
         <div className="mx-auto max-w-6xl px-6 py-20 text-center">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl animate-slide-up">
             Beautiful GitHub Stats Cards
           </h1>
-          <p className="mt-4 text-lg text-[#8b949e] max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-[#8b949e] max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '80ms' }}>
             Dynamically generated stats cards for your GitHub README.
             <br />
             Just swap in your username — no build step, no config files.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
+          <div className="mt-8 flex justify-center gap-4 animate-slide-up" style={{ animationDelay: '160ms' }}>
             <a
               href="#try"
-              className="rounded-lg bg-[#238636] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#2ea043] transition-colors"
+              className="rounded-lg bg-[#238636] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#2ea043] transition-all duration-200 hover:shadow-lg hover:shadow-[#238636]/20"
             >
               Try It Out
             </a>
             <a
               href="#params"
-              className="rounded-lg border border-[#30363d] px-5 py-2.5 text-sm font-medium text-[#c9d1d9] hover:border-[#8b949e] transition-colors"
+              className="rounded-lg border border-[#30363d] px-5 py-2.5 text-sm font-medium text-[#c9d1d9] hover:border-[#8b949e] transition-all duration-200"
             >
               Documentation
             </a>
           </div>
-          <div className="mt-12">
+          <div className="mt-12 animate-slide-up" style={{ animationDelay: '240ms' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/api/card?username=octocat&theme=default"
               alt="Example stats card"
-              className="mx-auto max-w-full rounded-lg shadow-2xl shadow-black/50"
+              className="mx-auto max-w-full rounded-xl shadow-2xl shadow-black/50"
             />
           </div>
         </div>
@@ -254,103 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Themes ─── */}
-      <section id="themes" className="border-b border-[#21262d]">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="text-2xl font-bold mb-2">Themes</h2>
-          <p className="text-[#8b949e] mb-8">
-            Pick a built-in theme or override individual colours with hex
-            parameters.
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {Object.entries(themes).map(([key, t]) => (
-              <div
-                key={key}
-                className="rounded-lg border border-[#30363d] overflow-hidden"
-              >
-                {/* colour swatch */}
-                <div
-                  className="p-4"
-                  style={{ backgroundColor: t.bg }}
-                >
-                  <div
-                    className="text-sm font-semibold mb-2"
-                    style={{ color: t.title }}
-                  >
-                    {t.name}
-                  </div>
-                  <div className="flex gap-2">
-                    {[t.title, t.icon, t.text, t.border].map((c, i) => (
-                      <div
-                        key={i}
-                        className="h-5 w-5 rounded-full border border-white/10"
-                        style={{ backgroundColor: c }}
-                        title={c}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <div className="bg-[#161b22] px-4 py-2 text-xs text-[#8b949e]">
-                  <code>?theme={key}</code>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ─── Deploy ─── */}
-      <section id="deploy" className="border-b border-[#21262d]">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="text-2xl font-bold mb-4">Deploy Your Own</h2>
-          <ol className="list-decimal list-inside space-y-3 text-[#c9d1d9]">
-            <li>
-              Fork or clone this repository.
-            </li>
-            <li>
-              Create a{" "}
-              <a
-                href="https://github.com/settings/tokens"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#58a6ff] hover:underline"
-              >
-                GitHub Personal Access Token
-              </a>{" "}
-              (classic) with the{" "}
-              <code className="rounded bg-[#161b22] px-1.5 py-0.5 text-sm text-[#79c0ff]">
-                read:user
-              </code>{" "}
-              scope.
-            </li>
-            <li>
-              Deploy to{" "}
-              <a
-                href="https://vercel.com/new"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#58a6ff] hover:underline"
-              >
-                Vercel
-              </a>
-              .
-            </li>
-            <li>
-              Add{" "}
-              <code className="rounded bg-[#161b22] px-1.5 py-0.5 text-sm text-[#79c0ff]">
-                GITHUB_TOKEN
-              </code>{" "}
-              as an environment variable in the Vercel project settings.
-            </li>
-            <li>
-              Use your deployment URL in the embed:{" "}
-              <code className="rounded bg-[#161b22] px-1.5 py-0.5 text-sm text-[#79c0ff]">
-                https://your-app.vercel.app/api/card?username=YOUR_USERNAME
-              </code>
-            </li>
-          </ol>
-        </div>
-      </section>
 
       {/* ─── Footer ─── */}
       <footer className="bg-[#010409]">
