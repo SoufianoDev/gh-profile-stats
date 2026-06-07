@@ -60,7 +60,7 @@ export default async function Image() {
             marginTop: "32px",
           }}
         >
-          ghstats.dev
+          gh-profile-stats.up.railway.app
         </div>
       </div>
     ),

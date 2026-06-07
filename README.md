@@ -6,7 +6,7 @@
 
 Free, real-time GitHub stat cards, badges, and charts — drop a URL into your README and you're done. No tokens, no setup.
 
-**[ghstats.dev](https://gh-profile-stats.up.railway.app)**
+**[gh-profile-stats.up.railway.app](https://gh-profile-stats.up.railway.app)**
 
 ---
 
@@ -108,7 +108,7 @@ Default, Light, Radical, Tokyo Night, Dracula, Nord, Gruvbox, Catppuccin, Ocean,
 - **Token needed?** No — public GraphQL only.
 - **Refresh rate?** Tiered by endpoint so slower-moving badges can stay cached longer while activity-focused embeds refresh sooner.
 - **Free?** Yes. MIT licensed.
-- **Where to tweak without URLs?** [ghstats.dev/builder](https://gh-profile-stats.up.railway.app/builder).
+- **Where to tweak without URLs?** [gh-profile-stats.up.railway.app/builder](https://gh-profile-stats.up.railway.app/builder).
 
 ## Cache policy
 
