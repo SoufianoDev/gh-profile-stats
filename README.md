@@ -2,6 +2,16 @@
 ![Repo Views](https://gh-profile-stats.up.railway.app/api/visits?username=SoufianoDev&repo=GitHub-profile-stats)
 [![CodeFactor](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats/badge)](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats)
 
+<div align="center">
+
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-3-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Hosted on Railway](https://img.shields.io/badge/Railway-deployed-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)
+
+</div>
+
 # GitHub Profile Stats — now with mini badges & sparklines
 
 Free, real-time GitHub stat cards, badges, and charts — drop a URL into your README and you're done. No tokens, no setup.
