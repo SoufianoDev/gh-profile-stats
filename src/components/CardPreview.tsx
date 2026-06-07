@@ -58,6 +58,7 @@ export default function CardPreview() {
   const [miniMetric, setMiniMetric] = useState("stars");
   const [miniLabel, setMiniLabel] = useState("");
   const [miniColor, setMiniColor] = useState("");
+  const [miniStyle, setMiniStyle] = useState("flat");
 
   // Sparkline options
   const [sparkDays, setSparkDays] = useState("30");
@@ -147,6 +148,7 @@ export default function CardPreview() {
       if (miniMetric !== "stars") p.set("metric", miniMetric);
       if (miniLabel.trim()) p.set("label", miniLabel.trim());
       if (miniColor.trim()) p.set("color", miniColor.trim());
+      if (miniStyle !== "flat") p.set("style", miniStyle);
     }
 
     if (embedType === "sparkline") {
@@ -174,6 +176,7 @@ export default function CardPreview() {
     miniColor,
     miniLabel,
     miniMetric,
+    miniStyle,
     origin,
     showEmoji,
     showIcons,
@@ -528,6 +531,30 @@ export default function CardPreview() {
                     placeholder="f59e0b"
                     className="input-field"
                   />
+                </div>
+                <div>
+                  <label className="label-text">Badge Style</label>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {([
+                      { key: "flat", label: "Flat" },
+                      { key: "flat-square", label: "Square" },
+                      { key: "for-the-badge", label: "For The Badge" },
+                      { key: "plastic", label: "Plastic" },
+                      { key: "minimal", label: "Minimal" },
+                    ] as const).map((opt) => (
+                      <button
+                        key={opt.key}
+                        onClick={() => setMiniStyle(opt.key)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all duration-200 ${
+                          miniStyle === opt.key
+                            ? "bg-[#58a6ff]/10 border-[#58a6ff]/50 text-[#58a6ff]"
+                            : "bg-[#161b22] border-[#30363d] text-[#8b949e] hover:text-[#c9d1d9]"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

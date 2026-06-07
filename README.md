@@ -1,5 +1,5 @@
-![Users](https://gh-profile-stats.up.railway.app/api/badge)
-![Repo Views](https://gh-profile-stats.up.railway.app/api/visits?username=SoufianoDev&repo=GitHub-profile-stats)
+![Users](https://gh-profile-stats.up.railway.app/api/badge?style=for-the-badge)
+![Repo Views](https://gh-profile-stats.up.railway.app/api/visits?username=SoufianoDev&repo=GitHub-profile-stats&style=for-the-badge)
 [![CodeFactor](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats/badge)](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats)
 
 # GitHub Profile Stats — now with mini badges & sparklines
@@ -50,6 +50,18 @@ Free, real-time GitHub stat cards, badges, and charts — drop a URL into your R
 [![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=streak&color=f97316)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
 
+**Badge styles — pick a look**
+
+| Style | Preview |
+| --- | --- |
+| `flat` | ![](https://gh-profile-stats.up.railway.app/api/badge?style=flat) |
+| `flat-square` | ![](https://gh-profile-stats.up.railway.app/api/badge?style=flat-square) |
+| `for-the-badge` | ![](https://gh-profile-stats.up.railway.app/api/badge?style=for-the-badge) |
+| `plastic` | ![](https://gh-profile-stats.up.railway.app/api/badge?style=plastic) |
+| `minimal` | ![](https://gh-profile-stats.up.railway.app/api/badge?style=minimal) |
+
+Apply with `?style=for-the-badge` on `/api/mini` or `/api/badge`. Works alongside `color` and `label`.
+
 **Activity sparkline (7–90 days)**
 
 [![](https://gh-profile-stats.up.railway.app/api/sparkline?username=SoufianoDev&days=30&width=420)](https://github.com/rowkav09/GitHub-profile-stats)
@@ -89,6 +101,13 @@ Need tweaks? Use the on-page editor to toggle stats, themes, borders, titles, an
 **Mini badges ( /api/mini )**
 - `metric=stars|commits|prs|issues|hours|streak|week|followers|repos|contributions`
 - `label` (override text), `color` (value side), `theme` (for errors)
+- `style=flat|flat-square|for-the-badge|plastic|minimal` (default `flat`)
+
+**Counter badge ( /api/badge )**
+- `style=flat|flat-square|for-the-badge|plastic|minimal` (default `flat`)
+
+**Visits badge ( /api/visits )**
+- `style=flat|flat-square|for-the-badge|plastic|minimal` (default `flat`)
 
 > Note: `hours` is currently WIP and is an estimate, not exact tracked coding time.
 
