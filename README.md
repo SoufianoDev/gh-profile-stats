@@ -41,14 +41,20 @@ Free, real-time GitHub stat cards, badges, and charts — drop a URL into your R
 
 **Mini badges (drop anywhere)**
 
-[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=stars)](https://github.com/SoufianoDev/gh-profile-stats)
-[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=commits&color=0ea5e9)](https://github.com/SoufianoDev/gh-profile-stats)
-[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=streak&color=f97316)](https://github.com/SoufianoDev/gh-profile-stats)
+Any metric, any colour, any style — perfect for sprinkling through a README.
+
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=stars&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=commits&color=0ea5e9&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=streak&color=f97316&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=SoufianoDev&metric=followers&label=Community&color=22c55e&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
 ```
-[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=stars)](https://github.com/SoufianoDev/gh-profile-stats)
-[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=commits&color=0ea5e9)](https://github.com/SoufianoDev/gh-profile-stats)
-[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=streak&color=f97316)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=stars&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=commits&color=0ea5e9&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=streak&color=f97316&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=followers&label=Community&color=22c55e&style=for-the-badge)](https://github.com/SoufianoDev/gh-profile-stats)
 ```
+
+Pass `label=…` to override the default label text and `style=…` to switch between `flat`, `flat-square`, `for-the-badge`, `plastic`, and `minimal` (see the table below).
 
 **Badge styles — pick a look**
 
