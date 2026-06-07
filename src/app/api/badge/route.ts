@@ -14,7 +14,7 @@ export async function GET(request: Request) {
     status: 200,
     headers: {
       "Content-Type": "image/svg+xml",
-      ...getCacheHeaders("slow"),
+      ...getCacheHeaders("default"),
     },
   });
 }
