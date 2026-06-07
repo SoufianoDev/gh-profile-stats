@@ -21,6 +21,9 @@ const THEMES = [
   { key: "nightowl", name: "Night Owl" },
   { key: "solarized", name: "Solarized" },
   { key: "ayu", name: "Ayu" },
+  { key: "rosepine", name: "Rosé Pine" },
+  { key: "kanagawa", name: "Kanagawa" },
+  { key: "palenight", name: "Material Palenight" },
 ];
 
 const ALL_STATS = [

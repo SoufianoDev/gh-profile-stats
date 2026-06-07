@@ -124,7 +124,7 @@ Need tweaks? Use the on-page editor to toggle stats, themes, borders, titles, an
 
 ## Themes
 
-Default, Light, Radical, Tokyo Night, Dracula, Nord, Gruvbox, Catppuccin, Ocean, Sunset, Forest, Midnight, Night Owl, Solarized, Ayu.
+Default, Light, Radical, Tokyo Night, Dracula, Nord, Gruvbox, Catppuccin, Ocean, Sunset, Forest, Midnight, Night Owl, Solarized, Ayu, Rosé Pine, Kanagawa, Material Palenight.
 
 ---
 

@@ -121,6 +121,30 @@ export const themes: Record<string, ThemeConfig> = {
     icon: "#ff8f40",
     border: "#1b1f29",
   },
+  rosepine: {
+    name: "Rosé Pine",
+    bg: "#191724",
+    text: "#e0def4",
+    title: "#ebbcba",
+    icon: "#c4a7e7",
+    border: "#26233a",
+  },
+  kanagawa: {
+    name: "Kanagawa",
+    bg: "#1F1F28",
+    text: "#DCD7BA",
+    title: "#7E9CD8",
+    icon: "#E6C384",
+    border: "#2A2A37",
+  },
+  palenight: {
+    name: "Material Palenight",
+    bg: "#292D3E",
+    text: "#A6ACCD",
+    title: "#82AAFF",
+    icon: "#C792EA",
+    border: "#2b2a3e",
+  },
 };
 
 export function resolveTheme(
