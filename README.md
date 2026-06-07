@@ -1,6 +1,6 @@
 ![Users](https://gh-profile-stats.up.railway.app/api/badge?style=for-the-badge&v=2)
 ![Repo Views](https://gh-profile-stats.up.railway.app/api/visits?username=SoufianoDev&repo=GitHub-profile-stats&style=for-the-badge&v=2)
-[![CodeFactor](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats/badge)](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats)
+[![CodeFactor](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats)
 
 # GitHub Profile Stats — now with mini badges & sparklines
 
