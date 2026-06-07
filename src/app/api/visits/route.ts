@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
   let label: string;
 
   if (username) {
-    // Per-repo counter:  ?username=SoufianoDev&repo=GitHub-profile-stats
+    // Per-repo counter:  ?username=SoufianoDev&repo=gh-profile-stats
     // Per-profile counter: ?username=SoufianoDev
     count = await trackView(username, repo);
     label = repo ? "repo views" : "profile views";

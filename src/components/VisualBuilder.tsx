@@ -469,7 +469,7 @@ export default function VisualBuilder() {
 
   const embedCardUrl = buildCardUrl(origin);
   const embedLangsUrl = showLanguages ? buildLangsUrl(origin) : "";
-  const repoUrl = "https://github.com/rowkav09/GitHub-profile-stats";
+  const repoUrl = "https://github.com/SoufianoDev/gh-profile-stats";
   const widthAttr = embedWidth !== 495 ? ` width="${embedWidth}"` : "";
 
   const markdownCard = embedCardUrl

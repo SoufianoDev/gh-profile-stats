@@ -16,7 +16,7 @@ export default function Icon() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://github.com/rowkav09.png"
+          src="https://github.com/SoufianoDev.png"
           width={32}
           height={32}
           style={{ borderRadius: "50%" }}

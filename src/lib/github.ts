@@ -177,7 +177,7 @@ export async function fetchGitHubStats(
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      "User-Agent": "github-profile-stats",
+      "User-Agent": "gh-profile-stats",
     },
     body: JSON.stringify({ query: QUERY, variables: { username } }),
     cache: "no-store",
@@ -306,7 +306,7 @@ export async function fetchLanguageStats(
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      "User-Agent": "github-profile-stats",
+      "User-Agent": "gh-profile-stats",
     },
     body: JSON.stringify({ query: LANG_QUERY, variables: { username } }),
     cache: "no-store",

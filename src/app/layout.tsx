@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "profile readme",
     "github stats badge",
   ],
-  authors: [{ name: "rowkav09", url: "https://github.com/rowkav09" }],
-  creator: "rowkav09",
-  publisher: "rowkav09",
+  authors: [{ name: "SoufianoDev", url: "https://github.com/SoufianoDev" }],
+  creator: "SoufianoDev",
+  publisher: "SoufianoDev",
   openGraph: {
     title:
       "GitHub Profile Stats — Beautiful Stats Cards for Your README",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description:
       "Generate beautiful, dynamically generated GitHub stats cards for your profile README. 13 stats, 12 themes, fully customizable SVG cards — just paste one line. No tokens, no setup, no deployment needed. Free and open source.",
     images: ["/opengraph-image"],
-    creator: "@rowkav09",
+    creator: "@SoufianoDev",
   },
   alternates: {
     canonical: "https://gh-profile-stats.up.railway.app",
@@ -90,8 +90,8 @@ const jsonLd = {
   },
   author: {
     "@type": "Person",
-    name: "rowkav09",
-    url: "https://github.com/rowkav09",
+    name: "SoufianoDev",
+    url: "https://github.com/SoufianoDev",
   },
 };
 
