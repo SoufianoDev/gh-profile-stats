@@ -97,6 +97,30 @@ export const themes: Record<string, ThemeConfig> = {
     icon: "#0099ff",
     border: "#090979",
   },
+  nightowl: {
+    name: "Night Owl",
+    bg: "#011627",
+    text: "#d6deeb",
+    title: "#7fdbca",
+    icon: "#c792ea",
+    border: "#1d3b53",
+  },
+  solarized: {
+    name: "Solarized",
+    bg: "#002b36",
+    text: "#839496",
+    title: "#2aa198",
+    icon: "#b58900",
+    border: "#073642",
+  },
+  ayu: {
+    name: "Ayu",
+    bg: "#0d1017",
+    text: "#bfbdb6",
+    title: "#e6b450",
+    icon: "#ff8f40",
+    border: "#1b1f29",
+  },
 };
 
 export function resolveTheme(

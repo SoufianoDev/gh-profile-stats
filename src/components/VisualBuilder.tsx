@@ -18,6 +18,9 @@ const THEMES = [
   { key: "sunset", name: "Sunset" },
   { key: "forest", name: "Forest" },
   { key: "midnight", name: "Midnight" },
+  { key: "nightowl", name: "Night Owl" },
+  { key: "solarized", name: "Solarized" },
+  { key: "ayu", name: "Ayu" },
 ];
 
 const ALL_STATS = [
