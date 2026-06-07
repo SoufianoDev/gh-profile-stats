@@ -1,12 +1,12 @@
-![Users](https://ghstats.dev/api/badge)
-![Repo Views](https://ghstats.dev/api/visits?username=rowkav09&repo=GitHub-profile-stats)
+![Users](https://gh-profile-stats.up.railway.app/api/badge)
+![Repo Views](https://gh-profile-stats.up.railway.app/api/visits?username=rowkav09&repo=GitHub-profile-stats)
 [![CodeFactor](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats/badge)](https://www.codefactor.io/repository/github/rowkav09/github-profile-stats)
 
 # GitHub Profile Stats — now with mini badges & sparklines
 
 Free, real-time GitHub stat cards, badges, and charts — drop a URL into your README and you're done. No tokens, no setup.
 
-**[ghstats.dev](https://ghstats.dev)**
+**[ghstats.dev](https://gh-profile-stats.up.railway.app)**
 
 ---
 
@@ -14,52 +14,52 @@ Free, real-time GitHub stat cards, badges, and charts — drop a URL into your R
 
 **Standard card**
 
-[![](https://ghstats.dev/api/card?username=rowkav09&theme=tokyonight)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=rowkav09&theme=tokyonight)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
-[![](https://ghstats.dev/api/card?username=YOUR_USERNAME&theme=tokyonight)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=YOUR_USERNAME&theme=tokyonight)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
 
 **Compact grids (3 / 4 / 6)**
 
-[![](https://ghstats.dev/api/card?username=rowkav09&theme=radical&size=compact&compact_count=3)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/card?username=rowkav09&theme=catppuccin&size=compact&compact_count=4)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/card?username=rowkav09&theme=forest&size=compact&compact_count=6)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=rowkav09&theme=radical&size=compact&compact_count=3)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=rowkav09&theme=catppuccin&size=compact&compact_count=4)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=rowkav09&theme=forest&size=compact&compact_count=6)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
-[![](https://ghstats.dev/api/card?username=YOUR_USERNAME&theme=radical&size=compact&compact_count=3)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/card?username=YOUR_USERNAME&theme=catppuccin&size=compact&compact_count=4)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/card?username=YOUR_USERNAME&theme=forest&size=compact&compact_count=6)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=YOUR_USERNAME&theme=radical&size=compact&compact_count=3)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=YOUR_USERNAME&theme=catppuccin&size=compact&compact_count=4)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/card?username=YOUR_USERNAME&theme=forest&size=compact&compact_count=6)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
 
 **Languages (bar + stacked)**
 
-[![](https://ghstats.dev/api/langs?username=rowkav09&theme=dracula&layout=bar)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/langs?username=rowkav09&theme=ocean&layout=stacked)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/langs?username=rowkav09&theme=dracula&layout=bar)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/langs?username=rowkav09&theme=ocean&layout=stacked)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
-[![](https://ghstats.dev/api/langs?username=YOUR_USERNAME&theme=dracula&layout=bar)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/langs?username=YOUR_USERNAME&theme=ocean&layout=stacked)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/langs?username=YOUR_USERNAME&theme=dracula&layout=bar)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/langs?username=YOUR_USERNAME&theme=ocean&layout=stacked)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
 
 **Mini badges (drop anywhere)**
 
-[![](https://ghstats.dev/api/mini?username=rowkav09&metric=stars)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/mini?username=rowkav09&metric=commits&color=0ea5e9)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/mini?username=rowkav09&metric=streak&color=f97316)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=rowkav09&metric=stars)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=rowkav09&metric=commits&color=0ea5e9)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=rowkav09&metric=streak&color=f97316)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
-[![](https://ghstats.dev/api/mini?username=YOUR_USERNAME&metric=stars)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/mini?username=YOUR_USERNAME&metric=commits&color=0ea5e9)](https://github.com/rowkav09/GitHub-profile-stats)
-[![](https://ghstats.dev/api/mini?username=YOUR_USERNAME&metric=streak&color=f97316)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=stars)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=commits&color=0ea5e9)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/mini?username=YOUR_USERNAME&metric=streak&color=f97316)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
 
 **Activity sparkline (7–90 days)**
 
-[![](https://ghstats.dev/api/sparkline?username=rowkav09&days=30&width=420)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/sparkline?username=rowkav09&days=30&width=420)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
-[![](https://ghstats.dev/api/sparkline?username=YOUR_USERNAME&days=30&width=420)](https://github.com/rowkav09/GitHub-profile-stats)
+[![](https://gh-profile-stats.up.railway.app/api/sparkline?username=YOUR_USERNAME&days=30&width=420)](https://github.com/rowkav09/GitHub-profile-stats)
 ```
 
 **Quick color override**
 ```
-https://ghstats.dev/api/card?username=YOUR_USERNAME&bg=0f0f23&text=cccccc&title_color=ffff66&icon_color=ff6644
+https://gh-profile-stats.up.railway.app/api/card?username=YOUR_USERNAME&bg=0f0f23&text=cccccc&title_color=ffff66&icon_color=ff6644
 ```
 
 ---
@@ -108,7 +108,7 @@ Default, Light, Radical, Tokyo Night, Dracula, Nord, Gruvbox, Catppuccin, Ocean,
 - **Token needed?** No — public GraphQL only.
 - **Refresh rate?** Tiered by endpoint so slower-moving badges can stay cached longer while activity-focused embeds refresh sooner.
 - **Free?** Yes. MIT licensed.
-- **Where to tweak without URLs?** [ghstats.dev/builder](https://ghstats.dev/builder).
+- **Where to tweak without URLs?** [ghstats.dev/builder](https://gh-profile-stats.up.railway.app/builder).
 
 ## Cache policy
 
