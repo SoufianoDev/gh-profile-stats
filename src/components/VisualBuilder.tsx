@@ -148,7 +148,7 @@ export default function VisualBuilder() {
   const [activeTab, setActiveTab] = useState<EditorTab>("visual");
 
   // Config state
-  const [username, setUsername] = useState("octocat");
+  const [username, setUsername] = useState("SoufianoDev");
   const [theme, setTheme] = useState("default");
   const [stats, setStats] = useState<StatConfig[]>(
     ALL_STATS.map((s) => ({ ...s, enabled: true })),
@@ -528,7 +528,7 @@ export default function VisualBuilder() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="octocat"
+                placeholder="SoufianoDev"
                 className="input-field w-full"
               />
             </div>
@@ -586,7 +586,7 @@ export default function VisualBuilder() {
                   setImportInput(e.target.value);
                   setImportStatus(null);
                 }}
-                placeholder={`[![GitHub Stats](https://gh-profile-stats.up.railway.app/api/card?username=octocat&theme=tokyonight)](https://github.com/...)`}
+                placeholder={`[![GitHub Stats](https://gh-profile-stats.up.railway.app/api/card?username=SoufianoDev&theme=tokyonight)](https://github.com/...)`}
                 rows={3}
                 className="w-full rounded-lg border border-[#30363d] bg-[#161b22] px-4 py-2.5 text-xs text-[#c9d1d9] placeholder-[#484f58] font-mono resize-none focus:border-[#58a6ff] focus:outline-none focus:ring-1 focus:ring-[#58a6ff]/40 transition-all duration-200"
               />

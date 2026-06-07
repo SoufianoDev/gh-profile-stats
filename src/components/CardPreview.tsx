@@ -31,7 +31,7 @@ const EMBED_LABELS: Record<EmbedType, string> = {
 
 export default function CardPreview() {
   const [embedType, setEmbedType] = useState<EmbedType>("card");
-  const [username, setUsername] = useState("octocat");
+  const [username, setUsername] = useState("SoufianoDev");
   const [theme, setTheme] = useState("default");
   const [advancedMode, setAdvancedMode] = useState(false);
 
@@ -268,7 +268,7 @@ export default function CardPreview() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="octocat"
+                placeholder="SoufianoDev"
                 className="input-field"
               />
             </div>
