@@ -146,7 +146,7 @@ Default, Light, Radical, Tokyo Night, Dracula, Nord, Gruvbox, Catppuccin, Ocean,
 
 ## Contributing & support
 
-- PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+- PRs welcome see [CONTRIBUTING.md](CONTRIBUTING.md).
 - Like it? Drop a ⭐ on the repo: [GitHub](https://github.com/SoufianoDev/gh-profile-stats).
 
 ---
