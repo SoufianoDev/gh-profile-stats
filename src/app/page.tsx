@@ -96,7 +96,7 @@ const PARAMS = [
     name: "layout",
     type: "string",
     default: '"bar"',
-    desc: 'Language chart layout — "bar", "stacked", or "horizontal_list"',
+    desc: 'Language chart layout — "bar", "stacked", "horizontal_list", or "vertical_list"',
   },
   {
     name: "style",

@@ -30,15 +30,17 @@ Free, real-time GitHub stat cards, badges, and charts — drop a URL into your R
 [![](https://gh-profile-stats.netlify.app/api/card?username=YOUR_USERNAME&theme=forest&size=compact&compact_count=6)](https://github.com/SoufianoDev/gh-profile-stats)
 ```
 
-**Languages (bar + stacked + horizontal list)**
+**Languages (bar + stacked + horizontal list + vertical list)**
 
 [![](https://gh-profile-stats.netlify.app/api/langs?username=SoufianoDev&theme=dracula&layout=bar)](https://github.com/SoufianoDev/gh-profile-stats)
 [![](https://gh-profile-stats.netlify.app/api/langs?username=SoufianoDev&theme=ocean&layout=stacked)](https://github.com/SoufianoDev/gh-profile-stats)
 [![](https://gh-profile-stats.netlify.app/api/langs?username=SoufianoDev&theme=nord&layout=horizontal_list)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.netlify.app/api/langs?username=SoufianoDev&theme=tokyonight&layout=vertical_list)](https://github.com/SoufianoDev/gh-profile-stats)
 ```
 [![](https://gh-profile-stats.netlify.app/api/langs?username=YOUR_USERNAME&theme=dracula&layout=bar)](https://github.com/SoufianoDev/gh-profile-stats)
 [![](https://gh-profile-stats.netlify.app/api/langs?username=YOUR_USERNAME&theme=ocean&layout=stacked)](https://github.com/SoufianoDev/gh-profile-stats)
 [![](https://gh-profile-stats.netlify.app/api/langs?username=YOUR_USERNAME&theme=nord&layout=horizontal_list)](https://github.com/SoufianoDev/gh-profile-stats)
+[![](https://gh-profile-stats.netlify.app/api/langs?username=YOUR_USERNAME&theme=tokyonight&layout=vertical_list)](https://github.com/SoufianoDev/gh-profile-stats)
 ```
 
 **Mini badges (drop anywhere)**
@@ -103,7 +105,7 @@ Need tweaks? Use the on-page editor to toggle stats, themes, borders, titles, an
 - Styling: `bg`, `text`, `title_color`, `icon_color`, `border_color`, `border_radius`, `custom_title`, `order`
 
 **Languages ( /api/langs )**
-- `layout=bar|stacked|horizontal_list`, `max_langs` (1–12)
+- `layout=bar|stacked|horizontal_list|vertical_list`, `max_langs` (1–12)
 - `hide_border`, `hide_title`, `custom_title`, `border_radius`, theme overrides as above
 
 **Mini badges ( /api/mini )**
