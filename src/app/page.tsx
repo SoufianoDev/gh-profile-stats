@@ -93,6 +93,12 @@ const PARAMS = [
     desc: 'Card density — "default" or "compact" (smaller fonts & tighter rows)',
   },
   {
+    name: "layout",
+    type: "string",
+    default: '"bar"',
+    desc: 'Language chart layout — "bar", "stacked", or "horizontal_list"',
+  },
+  {
     name: "style",
     type: "string",
     default: '"flat"',
