@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
   const headers = {
     "Content-Type": "image/svg+xml",
-    ...getCacheHeaders("activity"),
+    ...getCacheHeaders("no-store"),
   } as const;
 
   if (!username) {
