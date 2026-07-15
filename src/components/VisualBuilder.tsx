@@ -171,7 +171,7 @@ export default function VisualBuilder() {
   const [showEmoji, setShowEmoji] = useState(false);
   const [embedWidth, setEmbedWidth] = useState(495);
   const [maxLangs, setMaxLangs] = useState(8);
-  const [langLayout, setLangLayout] = useState<"bar" | "stacked" | "horizontal_list">("bar");
+  const [langLayout, setLangLayout] = useState<"bar" | "stacked" | "horizontal_list" | "vertical_list">("bar");
 
   // Preview state
   const [cardImgUrl, setCardImgUrl] = useState("");
@@ -742,7 +742,7 @@ export default function VisualBuilder() {
                           Layout
                         </label>
                         <div className="inline-flex rounded-xl border border-[#30363d] bg-[#161b22] p-[3px]">
-                          {(["bar", "stacked", "horizontal_list"] as const).map((opt) => (
+                          {(["bar", "stacked", "horizontal_list", "vertical_list"] as const).map((opt) => (
                             <button
                               key={opt}
                               onClick={() => setLangLayout(opt)}
@@ -752,7 +752,7 @@ export default function VisualBuilder() {
                                   : "text-[#8b949e] hover:text-[#c9d1d9]"
                               }`}
                             >
-                              {opt === "bar" ? "Bar" : opt === "stacked" ? "Stacked" : "Horizontal"}
+                              {opt === "bar" ? "Bar" : opt === "stacked" ? "Stacked" : opt === "horizontal_list" ? "Horizontal" : "Vertical"}
                             </button>
                           ))}
                         </div>

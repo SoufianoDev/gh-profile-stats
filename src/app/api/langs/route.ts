@@ -42,9 +42,11 @@ export async function GET(request: NextRequest) {
         ? "stacked"
         : params.get("layout") === "horizontal_list"
           ? "horizontal_list"
-          : params.get("layout") === "donut"
-            ? "donut"
-            : "bar",
+          : params.get("layout") === "vertical_list"
+            ? "vertical_list"
+            : params.get("layout") === "donut"
+              ? "donut"
+              : "bar",
   };
 
   const headers = {
