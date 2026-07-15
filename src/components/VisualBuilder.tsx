@@ -171,6 +171,7 @@ export default function VisualBuilder() {
   const [showEmoji, setShowEmoji] = useState(false);
   const [embedWidth, setEmbedWidth] = useState(495);
   const [maxLangs, setMaxLangs] = useState(8);
+  const [langLayout, setLangLayout] = useState<"bar" | "stacked" | "horizontal_list">("bar");
 
   // Preview state
   const [cardImgUrl, setCardImgUrl] = useState("");
@@ -241,9 +242,10 @@ export default function VisualBuilder() {
       if (hideBorder) p.set("hide_border", "true");
       if (borderRadius !== "4.5") p.set("border_radius", borderRadius);
       if (maxLangs !== 8) p.set("max_langs", String(maxLangs));
+      if (langLayout !== "bar") p.set("layout", langLayout);
       return `${base}/api/langs?${p.toString()}`;
     },
-    [username, theme, hideBorder, borderRadius, maxLangs],
+    [username, theme, hideBorder, borderRadius, maxLangs, langLayout],
   );
 
   // ─── Debounced preview ─────────────────────────────────────────────────────
@@ -402,6 +404,7 @@ export default function VisualBuilder() {
     setShowEmoji(false);
     setEmbedWidth(495);
     setMaxLangs(8);
+    setLangLayout("bar");
     setCardImgUrl("");
     setLangsImgUrl("");
   }
@@ -733,20 +736,42 @@ export default function VisualBuilder() {
                     label="Show language breakdown"
                   />
                   {showLanguages && (
-                    <div>
-                      <label className="text-xs text-[#8b949e] block mb-1.5">
-                        Max languages:{" "}
-                        <span className="text-[#58a6ff] font-semibold">{maxLangs}</span>
-                      </label>
-                      <input
-                        type="range"
-                        min="3"
-                        max="12"
-                        value={maxLangs}
-                        onChange={(e) => setMaxLangs(parseInt(e.target.value))}
-                        className="w-full accent-[#58a6ff]"
-                      />
-                    </div>
+                    <>
+                      <div>
+                        <label className="text-xs text-[#8b949e] block mb-1.5">
+                          Layout
+                        </label>
+                        <div className="inline-flex rounded-xl border border-[#30363d] bg-[#161b22] p-[3px]">
+                          {(["bar", "stacked", "horizontal_list"] as const).map((opt) => (
+                            <button
+                              key={opt}
+                              onClick={() => setLangLayout(opt)}
+                              className={`px-3 py-1 rounded-[9px] text-xs font-semibold tracking-wide transition-all duration-200 ease-out ${
+                                langLayout === opt
+                                  ? "bg-[#21262d] text-white shadow-sm border border-[#30363d]"
+                                  : "text-[#8b949e] hover:text-[#c9d1d9]"
+                              }`}
+                            >
+                              {opt === "bar" ? "Bar" : opt === "stacked" ? "Stacked" : "Horizontal"}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="text-xs text-[#8b949e] block mb-1.5">
+                          Max languages:{" "}
+                          <span className="text-[#58a6ff] font-semibold">{maxLangs}</span>
+                        </label>
+                        <input
+                          type="range"
+                          min="3"
+                          max="12"
+                          value={maxLangs}
+                          onChange={(e) => setMaxLangs(parseInt(e.target.value))}
+                          className="w-full accent-[#58a6ff]"
+                        />
+                      </div>
+                    </>
                   )}
                 </div>
               </div>
