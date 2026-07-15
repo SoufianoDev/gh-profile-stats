@@ -60,7 +60,7 @@ export default async function Image() {
             marginTop: "32px",
           }}
         >
-          gh-profile-stats.up.railway.app
+          gh-profile-stats.netlify.app
         </div>
       </div>
     ),

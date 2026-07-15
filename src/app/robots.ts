@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/card", "/api/badge", "/api/visits"],
       },
     ],
-    sitemap: "https://gh-profile-stats.up.railway.app/sitemap.xml",
+    sitemap: "https://gh-profile-stats.netlify.app/sitemap.xml",
   };
 }

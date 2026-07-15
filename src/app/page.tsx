@@ -212,7 +212,7 @@ export default function Home() {
               Edit the <code className="rounded bg-[#161b22] px-1.5 py-0.5 text-[#79c0ff]">README.md</code> in your profile repo and paste:
             </p>
             <pre className="mt-3 ml-8 overflow-x-auto rounded-lg border border-[#30363d] bg-[#161b22] px-5 py-4 text-sm text-[#c9d1d9]">
-              {`![GitHub Stats](https://gh-profile-stats.up.railway.app/api/card?username=YOUR_USERNAME)`}
+              {`![GitHub Stats](https://gh-profile-stats.netlify.app/api/card?username=YOUR_USERNAME)`}
             </pre>
             <p className="mt-3 ml-8 text-sm text-[#8b949e]">
               Want a different look? Add{" "}

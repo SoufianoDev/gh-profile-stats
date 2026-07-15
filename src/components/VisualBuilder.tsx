@@ -176,7 +176,7 @@ export default function VisualBuilder() {
   const [cardImgUrl, setCardImgUrl] = useState("");
   const [langsImgUrl, setLangsImgUrl] = useState("");
   const [cardLoading, setCardLoading] = useState(false);
-  const [origin, setOrigin] = useState("https://gh-profile-stats.up.railway.app");
+  const [origin, setOrigin] = useState("https://gh-profile-stats.netlify.app");
 
   // Drag state
   const [dragIndex, setDragIndex] = useState<number | null>(null);
@@ -592,7 +592,7 @@ export default function VisualBuilder() {
                   setImportInput(e.target.value);
                   setImportStatus(null);
                 }}
-                placeholder={`[![GitHub Stats](https://gh-profile-stats.up.railway.app/api/card?username=SoufianoDev&theme=tokyonight)](https://github.com/...)`}
+                placeholder={`[![GitHub Stats](https://gh-profile-stats.netlify.app/api/card?username=SoufianoDev&theme=tokyonight)](https://github.com/...)`}
                 rows={3}
                 className="w-full rounded-lg border border-[#30363d] bg-[#161b22] px-4 py-2.5 text-xs text-[#c9d1d9] placeholder-[#484f58] font-mono resize-none focus:border-[#58a6ff] focus:outline-none focus:ring-1 focus:ring-[#58a6ff]/40 transition-all duration-200"
               />

@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gh-profile-stats.up.railway.app"),
+  metadataBase: new URL("https://gh-profile-stats.netlify.app"),
   title: {
     default:
       "GitHub Profile Stats — Beautiful Stats Cards for Your README",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "GitHub Profile Stats — Beautiful Stats Cards for Your README",
     description:
       "Generate beautiful, dynamically generated GitHub stats cards for your profile README. 13 stats, 18 themes, fully customizable SVG cards — just paste one line. No tokens, no setup, no deployment needed. Free and open source.",
-    url: "https://gh-profile-stats.up.railway.app",
+    url: "https://gh-profile-stats.netlify.app",
     siteName: "GitHub Profile Stats",
     type: "website",
     locale: "en_US",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     creator: "@SoufianoDev",
   },
   alternates: {
-    canonical: "https://gh-profile-stats.up.railway.app",
+    canonical: "https://gh-profile-stats.netlify.app",
   },
   robots: {
     index: true,
@@ -80,7 +80,7 @@ const jsonLd = {
   name: "GitHub Profile Stats",
   description:
     "Generate beautiful, dynamically generated GitHub stats cards for your profile README. 13 stats, 18 themes, fully customizable SVG cards — just paste one line. No tokens, no setup, no deployment needed. Free and open source.",
-  url: "https://gh-profile-stats.up.railway.app",
+  url: "https://gh-profile-stats.netlify.app",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "All",
   offers: {

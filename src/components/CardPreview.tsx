@@ -130,7 +130,7 @@ export default function CardPreview() {
   const [htmlCode, setHtmlCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
-  const [origin, setOrigin] = useState("https://gh-profile-stats.up.railway.app");
+  const [origin, setOrigin] = useState("https://gh-profile-stats.netlify.app");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
