@@ -1,6 +1,6 @@
 import { getUserCount } from "@/lib/tracking";
 import { renderBadge, resolveBadgeStyle } from "./badge-svg";
-import { getCacheHeaders } from "@/lib/cache";
+import { getSVGCacheHeaders } from "@/lib/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +14,7 @@ export async function GET(request: Request) {
     status: 200,
     headers: {
       "Content-Type": "image/svg+xml",
-      ...getCacheHeaders("no-store"),
+      ...getSVGCacheHeaders(),
     },
   });
 }

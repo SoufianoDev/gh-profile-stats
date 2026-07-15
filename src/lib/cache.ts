@@ -76,3 +76,11 @@ export function getCacheHeaders(profileName: CacheProfileName): Record<string, s
 export function getMiniMetricCacheProfile(metric: string): CacheProfileName {
   return MINI_METRIC_PROFILES[metric as MiniMetricKey] ?? "default";
 }
+
+export function getSVGCacheHeaders(): Record<string, string> {
+  return {
+    "Cache-Control": "no-cache, max-age=0, must-revalidate",
+    "Netlify-CDN-Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
+    "Netlify-Vary": "query",
+  };
+}

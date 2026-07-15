@@ -4,7 +4,7 @@ import { renderLanguageChart, renderErrorCard } from "@/lib/svg";
 import { resolveTheme } from "@/lib/themes";
 import { sanitizeUsername, sanitizeHexParam } from "@/lib/sanitize";
 import { LangChartOptions } from "@/lib/types";
-import { getCacheHeaders } from "@/lib/cache";
+import { getSVGCacheHeaders } from "@/lib/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
 
   const headers = {
     "Content-Type": "image/svg+xml",
-    ...getCacheHeaders("no-store"),
+    ...getSVGCacheHeaders(),
   };
 
   if (!username) {
