@@ -548,10 +548,16 @@ function renderLanguageCard(
   const NAME_FONT = isHero ? 15 : 13;
   const PCT_FONT = isHero ? 24 : 20;
 
-  const headerY = y + 18;
+  const PAD_TOP = 16;
+  const NAME_AREA = 24;
+  const PAD_BOTTOM = 16;
+
+  const headerY = y + PAD_TOP + CIRCLE_R;
   const nameText = lang.name.length > 12 ? lang.name.slice(0, 11) + "…" : lang.name;
 
-  const pctY = y + h / 2 + PCT_FONT / 3;
+  const pctContentTop = y + PAD_TOP + NAME_AREA;
+  const pctContentH = h - PAD_TOP - NAME_AREA - PAD_BOTTOM;
+  const pctY = pctContentTop + pctContentH / 2 + PCT_FONT * 0.35;
 
   return [
     renderBaseCard(x, y, w, h, rx, theme),
