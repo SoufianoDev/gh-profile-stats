@@ -557,7 +557,14 @@ function renderLanguageCard(
   const PAD_BOTTOM = 16;
 
   const headerY = y + PAD_TOP + CIRCLE_R;
-  const nameText = lang.name.length > 12 ? lang.name.slice(0, 11) + "…" : lang.name;
+  const CHAR_W = 7.5;
+  const CIRCLE_SPACE = 14 + CIRCLE_R + 6;
+  const TEXT_AREA = w - CIRCLE_SPACE - 8;
+  const maxChars = Math.max(4, Math.floor(TEXT_AREA / CHAR_W));
+  const nameText =
+    lang.name.length > maxChars
+      ? lang.name.slice(0, maxChars - 1) + "…"
+      : lang.name;
 
   const pctContentTop = y + PAD_TOP + NAME_AREA;
   const pctContentH = h - PAD_TOP - NAME_AREA - PAD_BOTTOM;
@@ -577,6 +584,12 @@ function renderGridLanguageChart(
   theme: ThemeConfig,
   options: LangChartOptions,
 ): string {
+  const filteredLangs = languages.filter((l) => l.size > 0.0);
+  const filteredTotal = filteredLangs.reduce(
+    (sum: number, l: LanguageStat) => sum + l.size,
+    0,
+  );
+
   const W = 495;
   const PAD = 25;
   const TITLE_H = options.hide_title ? 0 : 28;
@@ -586,7 +599,7 @@ function renderGridLanguageChart(
   const GAP = 12;
   const rx = options.border_radius;
 
-  const numLangs = languages.length;
+  const numLangs = filteredLangs.length;
   const COLS = numLangs <= 1 ? 1 : numLangs <= 4 ? 2 : 4;
   const CARD_W = Math.floor((BAR_W - (COLS - 1) * GAP) / COLS);
   const CARD_H = numLangs === 1 ? 80 : 72;
@@ -595,21 +608,33 @@ function renderGridLanguageChart(
   const H = GRID_TOP + numRows * (CARD_H + GAP) - GAP + 16;
 
   let bx = PAD;
-  const barSegments = languages.map((lang) => {
-    const w = Math.max(2, Math.round((lang.size / totalSize) * BAR_W));
+  const barSegments = filteredLangs.map((lang) => {
+    const w = Math.max(2, Math.round((lang.size / filteredTotal) * BAR_W));
     const el = `<rect x="${bx}" y="${BAR_Y}" width="${w}" height="${BAR_H}" fill="${lang.color ?? "#586069"}"/>`;
     bx += w;
     return el;
   });
-  const clipDef = `<clipPath id="gl-clip"><rect x="${PAD}" y="${BAR_Y}" width="${BAR_W}" height="${BAR_H}" rx="${BAR_H / 2}"/></clipPath>`;
 
-  const langCards = languages.map((lang, i) => {
+  const barClip = `<clipPath id="gl-clip"><rect x="${PAD}" y="${BAR_Y}" width="${BAR_W}" height="${BAR_H}" rx="${BAR_H / 2}"/></clipPath>`;
+  const cardClips = filteredLangs
+    .map((_, i) => {
+      const col = i % COLS;
+      const row = Math.floor(i / COLS);
+      const cx = PAD + col * (CARD_W + GAP);
+      const cy = GRID_TOP + row * (CARD_H + GAP);
+      return `<clipPath id="gl-card-${i}"><rect x="${cx}" y="${cy}" width="${CARD_W}" height="${CARD_H}" rx="${rx}"/></clipPath>`;
+    })
+    .join("\n    ");
+  const clipDef = `${barClip}\n    ${cardClips}`;
+
+  const langCards = filteredLangs.map((lang, i) => {
     const col = i % COLS;
     const row = Math.floor(i / COLS);
     const cx = PAD + col * (CARD_W + GAP);
     const cy = GRID_TOP + row * (CARD_H + GAP);
-    const pct = ((lang.size / totalSize) * 100).toFixed(1);
-    return renderLanguageCard(cx, cy, CARD_W, CARD_H, lang, pct, rx, theme, numLangs === 1);
+    const pct = ((lang.size / filteredTotal) * 100).toFixed(1);
+    const cardContent = renderLanguageCard(cx, cy, CARD_W, CARD_H, lang, pct, rx, theme, numLangs === 1);
+    return `<g clip-path="url(#gl-card-${i})">${cardContent}</g>`;
   });
 
   const titleSvg = options.hide_title
