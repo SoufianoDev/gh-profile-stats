@@ -529,8 +529,12 @@ function renderBaseCard(
   h: number,
   rx: number,
   theme: ThemeConfig,
+  borderColor?: string,
+  borderOpacity?: number,
 ): string {
-  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" ry="${rx}" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1"/>`;
+  const stroke = borderColor ?? theme.border;
+  const opacity = borderOpacity !== undefined ? ` stroke-opacity="${borderOpacity}"` : "";
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" ry="${rx}" fill="${theme.bg}" stroke="${stroke}" stroke-width="1"${opacity}/>`;
 }
 
 function renderLanguageCard(
@@ -560,7 +564,7 @@ function renderLanguageCard(
   const pctY = pctContentTop + pctContentH / 2 + PCT_FONT * 0.35;
 
   return [
-    renderBaseCard(x, y, w, h, rx, theme),
+    renderBaseCard(x, y, w, h, rx, theme, theme.text, 0.15),
     `<circle cx="${x + 14}" cy="${headerY}" r="${CIRCLE_R}" fill="${lang.color ?? "#586069"}"/>`,
     `<text x="${x + 14 + CIRCLE_R + 6}" y="${headerY + 4}" class="gl-name" font-size="${NAME_FONT}">${escapeXml(nameText)}</text>`,
     `<text x="${x + w / 2}" y="${pctY}" text-anchor="middle" class="gl-pct" font-size="${PCT_FONT}" fill="${lang.color ?? "#586069"}">${pct}%</text>`,
