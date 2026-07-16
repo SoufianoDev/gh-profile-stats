@@ -541,7 +541,7 @@ export function renderLanguageChart(
     const name = truncateToWidth(lang.name, COL_W - 22, 11);
     return `<circle cx="${lx + 6}" cy="${ly + 5}" r="4" fill="${lang.color ?? "#586069"}"/>
   <text x="${lx + 14}" y="${ly + 9}" class="lc-name">${escapeXml(name)}</text>
-  <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${pct}</text>`;
+  <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${escapeXml(pct)}</text>`;
   });
 
   const titleSvg = options.hide_title
@@ -612,7 +612,7 @@ function renderLanguageCard(
     renderBaseCard(x, y, w, h, rx, theme, theme.text, 0.15),
     `<circle cx="${x + 14}" cy="${headerY}" r="${CIRCLE_R}" fill="${lang.color ?? "#586069"}"/>`,
     `<text x="${x + 14 + CIRCLE_R + 6}" y="${headerY + 4}" class="gl-name" font-size="${NAME_FONT}">${escapeXml(nameText)}</text>`,
-    `<text x="${x + w / 2}" y="${pctY}" text-anchor="middle" class="gl-pct" font-size="${PCT_FONT}" fill="${lang.color ?? "#586069"}">${pct}</text>`,
+    `<text x="${x + w / 2}" y="${pctY}" text-anchor="middle" class="gl-pct" font-size="${PCT_FONT}" fill="${lang.color ?? "#586069"}">${escapeXml(pct)}</text>`,
   ].join("\n    ");
 }
 
@@ -749,7 +749,7 @@ function renderStackedLanguageChart(
     const name = truncateToWidth(lang.name, COL_W - 22, 11);
     return `<circle cx="${lx + 6}" cy="${ly + 5}" r="4" fill="${lang.color ?? "#586069"}"/>
   <text x="${lx + 14}" y="${ly + 9}" class="lc-name">${escapeXml(name)}</text>
-  <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${pctText}</text>`;
+  <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${escapeXml(pctText)}</text>`;
   });
 
   const titleSvg = options.hide_title
@@ -838,7 +838,7 @@ function renderHorizontalListLanguageChart(
 
       const svg = `<circle cx="${circleX}" cy="${y + 5}" r="${CIRCLE_R}" fill="${item.lang.color ?? "#586069"}"/>
     <text x="${textX}" y="${y + 9}" class="lc-name">${escapeXml(item.lang.displayName)}</text>
-    <text x="${pctX}" y="${y + 9}" class="lc-pct">${item.pct}</text>`;
+    <text x="${pctX}" y="${y + 9}" class="lc-pct">${escapeXml(item.pct)}</text>`;
 
       x += item.itemTextWidth + (colIdx < row.length - 1 ? ITEM_GAP : 0);
       return svg;
@@ -905,7 +905,7 @@ function renderVerticalListLanguageChart(
     return `${divider}
     <circle cx="${PAD + CIRCLE_R}" cy="${y + ROW_H / 2}" r="${CIRCLE_R}" fill="${lang.color ?? "#586069"}"/>
     <text x="${PAD + CIRCLE_R * 2 + 8}" y="${y + ROW_H / 2 + 4}" class="lc-name">${escapeXml(name)}</text>
-    <text x="${W - PAD}" y="${y + ROW_H / 2 + 4}" class="lc-pct" text-anchor="end">${pct}</text>`;
+    <text x="${W - PAD}" y="${y + ROW_H / 2 + 4}" class="lc-pct" text-anchor="end">${escapeXml(pct)}</text>`;
   });
 
   const titleSvg = options.hide_title
