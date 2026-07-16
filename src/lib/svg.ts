@@ -80,7 +80,7 @@ function estimateTextWidth(text: string, fontSize: number): number {
 function formatLangPct(size: number, total: number): string {
   if (total <= 0) return "0.0%";
   const pct = (size / total) * 100;
-  if (pct > 0 && pct < 0.05) return "<0.1%";
+  if (pct > 0 && pct < 0.05) return "0.1%";
   return `${pct.toFixed(1)}%`;
 }
 
