@@ -788,7 +788,6 @@ function renderHorizontalListLanguageChart(
   const ROW_H = 22;
   const CIRCLE_R = 4;
   const CIRCLE_GAP = 10;
-  const PCT_EXTRA = 6;
   const rx = options.border_radius;
 
   let bx = PAD;
@@ -803,7 +802,7 @@ function renderHorizontalListLanguageChart(
   const items = languages.map((lang) => {
     const pct = formatLangPct(lang.size, totalSize);
     const displayName = truncateToWidth(lang.name, BAR_W - 60, 11);
-    const itemTextWidth = estimateTextWidth(displayName, 11) + estimateTextWidth(pct, 11) + PCT_EXTRA * 6.6 + CIRCLE_GAP;
+    const itemTextWidth = CIRCLE_R * 2 + CIRCLE_GAP + estimateTextWidth(displayName, 11) + 14 + estimateTextWidth(pct, 11);
     return { lang: { ...lang, displayName }, pct, itemTextWidth };
   });
 
@@ -834,7 +833,7 @@ function renderHorizontalListLanguageChart(
     return row.map((item, colIdx) => {
       const circleX = x + CIRCLE_R;
       const textX = x + CIRCLE_R * 2 + CIRCLE_GAP;
-      const pctX = textX + estimateTextWidth(item.lang.displayName, 11) + 8;
+      const pctX = textX + estimateTextWidth(item.lang.displayName, 11) + 14;
 
       const svg = `<circle cx="${circleX}" cy="${y + 5}" r="${CIRCLE_R}" fill="${item.lang.color ?? "#586069"}"/>
     <text x="${textX}" y="${y + 9}" class="lc-name">${escapeXml(item.lang.displayName)}</text>
