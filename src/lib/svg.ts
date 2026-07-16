@@ -522,6 +522,45 @@ export function renderLanguageChart(
 </svg>`;
 }
 
+function renderBaseCard(
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  rx: number,
+  theme: ThemeConfig,
+): string {
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" ry="${rx}" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1"/>`;
+}
+
+function renderLanguageCard(
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  lang: { name: string; color: string },
+  pct: string,
+  rx: number,
+  theme: ThemeConfig,
+  isHero: boolean,
+): string {
+  const CIRCLE_R = isHero ? 6 : 5;
+  const NAME_FONT = isHero ? 15 : 13;
+  const PCT_FONT = isHero ? 24 : 20;
+
+  const headerY = y + 18;
+  const nameText = lang.name.length > 12 ? lang.name.slice(0, 11) + "…" : lang.name;
+
+  const pctY = y + h / 2 + PCT_FONT / 3;
+
+  return [
+    renderBaseCard(x, y, w, h, rx, theme),
+    `<circle cx="${x + 14}" cy="${headerY}" r="${CIRCLE_R}" fill="${lang.color ?? "#586069"}"/>`,
+    `<text x="${x + 14 + CIRCLE_R + 6}" y="${headerY + 4}" class="gl-name" font-size="${NAME_FONT}">${escapeXml(nameText)}</text>`,
+    `<text x="${x + w / 2}" y="${pctY}" text-anchor="middle" class="gl-pct" font-size="${PCT_FONT}" fill="${lang.color ?? "#586069"}">${pct}%</text>`,
+  ].join("\n    ");
+}
+
 function renderGridLanguageChart(
   languages: LanguageStat[],
   totalSize: number,
@@ -535,13 +574,11 @@ function renderGridLanguageChart(
   const BAR_Y = TITLE_H + 12;
   const BAR_W = W - PAD * 2;
   const GAP = 12;
-  const CARD_BORDER_OPACITY = 0.4;
   const rx = options.border_radius;
 
   const numLangs = languages.length;
   const COLS = numLangs <= 1 ? 1 : numLangs <= 4 ? 2 : 4;
-  const GRID_W = BAR_W;
-  const CARD_W = Math.floor((GRID_W - (COLS - 1) * GAP) / COLS);
+  const CARD_W = Math.floor((BAR_W - (COLS - 1) * GAP) / COLS);
   const CARD_H = numLangs === 1 ? 80 : 72;
   const GRID_TOP = BAR_Y + BAR_H + 16;
   const numRows = Math.ceil(numLangs / COLS);
@@ -562,17 +599,7 @@ function renderGridLanguageChart(
     const cx = PAD + col * (CARD_W + GAP);
     const cy = GRID_TOP + row * (CARD_H + GAP);
     const pct = ((lang.size / totalSize) * 100).toFixed(1);
-    const name = lang.name.length > 12 ? lang.name.slice(0, 11) + "…" : lang.name;
-
-    const isHero = numLangs === 1;
-    const nameFontSize = isHero ? 15 : 13;
-    const pctFontSize = isHero ? 24 : 20;
-    const circleR = isHero ? 6 : 5;
-
-    return `<rect x="${cx}" y="${cy}" width="${CARD_W}" height="${CARD_H}" rx="${rx}" ry="${rx}" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" opacity="${CARD_BORDER_OPACITY}"/>
-    <circle cx="${cx + 14}" cy="${cy + 18}" r="${circleR}" fill="${lang.color ?? "#586069"}"/>
-    <text x="${cx + 14 + circleR + 6}" y="${cy + 22}" class="gl-name" font-size="${nameFontSize}">${escapeXml(name)}</text>
-    <text x="${cx + CARD_W / 2}" y="${cy + CARD_H - 14}" class="gl-pct" font-size="${pctFontSize}" fill="${lang.color ?? "#586069"}">${pct}%</text>`;
+    return renderLanguageCard(cx, cy, CARD_W, CARD_H, lang, pct, rx, theme, numLangs === 1);
   });
 
   const titleSvg = options.hide_title
