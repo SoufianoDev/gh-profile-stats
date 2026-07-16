@@ -169,7 +169,9 @@ export async function fetchGitHubStats(
 ): Promise<GitHubStats> {
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
-    throw new Error("GITHUB_TOKEN environment variable is not set");
+    throw new Error(
+      "GITHUB_TOKEN is not configured. Please add it to your deployment environment variables.",
+    );
   }
 
   const response = await fetch(GITHUB_GRAPHQL, {
@@ -298,7 +300,9 @@ export async function fetchLanguageStats(
 ): Promise<LanguageStat[]> {
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
-    throw new Error("GITHUB_TOKEN environment variable is not set");
+    throw new Error(
+      "GITHUB_TOKEN is not configured. Please add it to your deployment environment variables.",
+    );
   }
 
   const response = await fetch(GITHUB_GRAPHQL, {
