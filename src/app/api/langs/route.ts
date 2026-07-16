@@ -44,9 +44,11 @@ export async function GET(request: NextRequest) {
           ? "horizontal_list"
           : params.get("layout") === "vertical_list"
             ? "vertical_list"
-            : params.get("layout") === "donut"
-              ? "donut"
-              : "bar",
+            : params.get("layout") === "grid"
+              ? "grid"
+              : params.get("layout") === "donut"
+                ? "donut"
+                : "bar",
   };
 
   const headers = {

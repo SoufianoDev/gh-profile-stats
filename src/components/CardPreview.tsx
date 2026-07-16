@@ -103,7 +103,7 @@ export default function CardPreview() {
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
 
   // Languages options
-  const [langLayout, setLangLayout] = useState<"bar" | "stacked" | "horizontal_list" | "vertical_list">("bar");
+  const [langLayout, setLangLayout] = useState<"bar" | "stacked" | "horizontal_list" | "vertical_list" | "grid">("bar");
   const [maxLangs, setMaxLangs] = useState(8);
 
   // Mini badge options
@@ -505,7 +505,7 @@ export default function CardPreview() {
                 <div>
                   <label className="label-text">Layout</label>
                   <div className="mt-2 inline-flex rounded-xl border border-[#30363d] bg-[#161b22] p-[3px]">
-                    {(["bar", "stacked", "horizontal_list", "vertical_list"] as const).map((opt) => (
+                    {(["bar", "stacked", "horizontal_list", "vertical_list", "grid"] as const).map((opt) => (
                       <button
                         key={opt}
                         onClick={() => setLangLayout(opt)}
@@ -515,7 +515,7 @@ export default function CardPreview() {
                             : "text-[#8b949e] hover:text-[#c9d1d9]"
                         }`}
                       >
-                        {opt === "bar" ? "Bar" : opt === "stacked" ? "Stacked" : opt === "horizontal_list" ? "Horizontal List" : "Vertical List"}
+                        {opt === "bar" ? "Bar" : opt === "stacked" ? "Stacked" : opt === "horizontal_list" ? "Horizontal List" : opt === "vertical_list" ? "Vertical List" : "Grid"}
                       </button>
                     ))}
                   </div>
