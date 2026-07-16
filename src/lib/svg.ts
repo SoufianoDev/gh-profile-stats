@@ -41,6 +41,49 @@ function formatTrend(pct: number): { direction: "up" | "down" | "neutral"; text:
   return { direction: "neutral", text: "0%" };
 }
 
+function charWidth(ch: string, fontSize: number): number {
+  const c = ch.toLowerCase();
+  if ("ijlt!:;|".includes(c)) return fontSize * 0.27;
+  if ("frskce".includes(c)) return fontSize * 0.42;
+  if ("adgnoquvxyzsbhkp".includes(c)) return fontSize * 0.50;
+  if ("mwW".includes(c)) return fontSize * 0.58;
+  if ("MQ@".includes(c)) return fontSize * 0.69;
+  return fontSize * 0.50;
+}
+
+function truncateToWidth(text: string, maxWidth: number, fontSize: number): string {
+  let width = 0;
+  let lastFit = 0;
+  for (let i = 0; i < text.length; i++) {
+    const w = charWidth(text[i], fontSize);
+    if (width + w > maxWidth) break;
+    width += w;
+    lastFit = i + 1;
+  }
+  if (lastFit === text.length) return text;
+  if (lastFit === 0) return "…";
+  const ellipsisW = charWidth("…", fontSize);
+  while (lastFit > 0 && width + ellipsisW > maxWidth) {
+    width -= charWidth(text[lastFit - 1], fontSize);
+    lastFit--;
+  }
+  if (lastFit === 0) return "…";
+  return text.slice(0, lastFit) + "…";
+}
+
+function estimateTextWidth(text: string, fontSize: number): number {
+  let width = 0;
+  for (const ch of text) width += charWidth(ch, fontSize);
+  return width;
+}
+
+function formatLangPct(size: number, total: number): string {
+  if (total <= 0) return "0.0%";
+  const pct = (size / total) * 100;
+  if (pct > 0 && pct < 0.05) return "<0.1%";
+  return `${pct.toFixed(1)}%`;
+}
+
 function getVisibleStats(
   stats: GitHubStats,
   hide: string[],
@@ -494,11 +537,11 @@ export function renderLanguageChart(
     const row = Math.floor(i / COLS);
     const lx = PAD + col * COL_W;
     const ly = NAMES_TOP + row * ROW_H;
-    const pct = ((lang.size / totalSize) * 100).toFixed(1);
-    const name = lang.name.length > 16 ? lang.name.slice(0, 15) + "…" : lang.name;
+    const pct = formatLangPct(lang.size, totalSize);
+    const name = truncateToWidth(lang.name, COL_W - 22, 11);
     return `<circle cx="${lx + 6}" cy="${ly + 5}" r="4" fill="${lang.color ?? "#586069"}"/>
   <text x="${lx + 14}" y="${ly + 9}" class="lc-name">${escapeXml(name)}</text>
-  <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${pct}%</text>`;
+  <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${pct}</text>`;
   });
 
   const titleSvg = options.hide_title
@@ -557,14 +600,9 @@ function renderLanguageCard(
   const PAD_BOTTOM = 16;
 
   const headerY = y + PAD_TOP + CIRCLE_R;
-  const CHAR_W = 7.5;
   const CIRCLE_SPACE = 14 + CIRCLE_R + 6;
   const TEXT_AREA = w - CIRCLE_SPACE - 8;
-  const maxChars = Math.max(4, Math.floor(TEXT_AREA / CHAR_W));
-  const nameText =
-    lang.name.length > maxChars
-      ? lang.name.slice(0, maxChars - 1) + "…"
-      : lang.name;
+  const nameText = truncateToWidth(lang.name, TEXT_AREA, NAME_FONT);
 
   const pctContentTop = y + PAD_TOP + NAME_AREA;
   const pctContentH = h - PAD_TOP - NAME_AREA - PAD_BOTTOM;
@@ -574,7 +612,7 @@ function renderLanguageCard(
     renderBaseCard(x, y, w, h, rx, theme, theme.text, 0.15),
     `<circle cx="${x + 14}" cy="${headerY}" r="${CIRCLE_R}" fill="${lang.color ?? "#586069"}"/>`,
     `<text x="${x + 14 + CIRCLE_R + 6}" y="${headerY + 4}" class="gl-name" font-size="${NAME_FONT}">${escapeXml(nameText)}</text>`,
-    `<text x="${x + w / 2}" y="${pctY}" text-anchor="middle" class="gl-pct" font-size="${PCT_FONT}" fill="${lang.color ?? "#586069"}">${pct}%</text>`,
+    `<text x="${x + w / 2}" y="${pctY}" text-anchor="middle" class="gl-pct" font-size="${PCT_FONT}" fill="${lang.color ?? "#586069"}">${pct}</text>`,
   ].join("\n    ");
 }
 
@@ -632,7 +670,7 @@ function renderGridLanguageChart(
     const row = Math.floor(i / COLS);
     const cx = PAD + col * (CARD_W + GAP);
     const cy = GRID_TOP + row * (CARD_H + GAP);
-    const pct = ((lang.size / filteredTotal) * 100).toFixed(1);
+    const pct = formatLangPct(lang.size, filteredTotal);
     const cardContent = renderLanguageCard(cx, cy, CARD_W, CARD_H, lang, pct, rx, theme, numLangs === 1);
     return `<g clip-path="url(#gl-card-${i})">${cardContent}</g>`;
   });
@@ -707,8 +745,8 @@ function renderStackedLanguageChart(
     const lx = PAD + col * COL_W;
     const ly = NAMES_TOP + row * ROW_H;
     const pct = totalSize > 0 ? (lang.size / totalSize) * 100 : 0;
-    const pctText = `${pct.toFixed(1)}%`;
-    const name = lang.name.length > 16 ? `${lang.name.slice(0, 15)}…` : lang.name;
+    const pctText = formatLangPct(lang.size, totalSize);
+    const name = truncateToWidth(lang.name, COL_W - 22, 11);
     return `<circle cx="${lx + 6}" cy="${ly + 5}" r="4" fill="${lang.color ?? "#586069"}"/>
   <text x="${lx + 14}" y="${ly + 9}" class="lc-name">${escapeXml(name)}</text>
   <text x="${lx + COL_W - 2}" y="${ly + 9}" class="lc-pct" text-anchor="end">${pctText}</text>`;
@@ -746,7 +784,6 @@ function renderHorizontalListLanguageChart(
   const BAR_H = 10;
   const BAR_Y = TITLE_H + 12;
   const BAR_W = W - PAD * 2;
-  const CHAR_W = 6.6;
   const ITEM_GAP = 20;
   const ROW_H = 22;
   const CIRCLE_R = 4;
@@ -764,9 +801,9 @@ function renderHorizontalListLanguageChart(
   const clipDef = `<clipPath id="hl-clip"><rect x="${PAD}" y="${BAR_Y}" width="${BAR_W}" height="${BAR_H}" rx="${BAR_H / 2}"/></clipPath>`;
 
   const items = languages.map((lang) => {
-    const pct = ((lang.size / totalSize) * 100).toFixed(1);
-    const displayName = lang.name.length > 16 ? lang.name.slice(0, 15) + "…" : lang.name;
-    const itemTextWidth = (displayName.length + pct.length + PCT_EXTRA) * CHAR_W + CIRCLE_GAP;
+    const pct = formatLangPct(lang.size, totalSize);
+    const displayName = truncateToWidth(lang.name, BAR_W - 60, 11);
+    const itemTextWidth = estimateTextWidth(displayName, 11) + estimateTextWidth(pct, 11) + PCT_EXTRA * 6.6 + CIRCLE_GAP;
     return { lang: { ...lang, displayName }, pct, itemTextWidth };
   });
 
@@ -797,11 +834,11 @@ function renderHorizontalListLanguageChart(
     return row.map((item, colIdx) => {
       const circleX = x + CIRCLE_R;
       const textX = x + CIRCLE_R * 2 + CIRCLE_GAP;
-      const pctX = textX + item.lang.displayName.length * CHAR_W + 8;
+      const pctX = textX + estimateTextWidth(item.lang.displayName, 11) + 8;
 
       const svg = `<circle cx="${circleX}" cy="${y + 5}" r="${CIRCLE_R}" fill="${item.lang.color ?? "#586069"}"/>
     <text x="${textX}" y="${y + 9}" class="lc-name">${escapeXml(item.lang.displayName)}</text>
-    <text x="${pctX}" y="${y + 9}" class="lc-pct">${item.pct}%</text>`;
+    <text x="${pctX}" y="${y + 9}" class="lc-pct">${item.pct}</text>`;
 
       x += item.itemTextWidth + (colIdx < row.length - 1 ? ITEM_GAP : 0);
       return svg;
@@ -858,8 +895,8 @@ function renderVerticalListLanguageChart(
 
   const langRows = languages.map((lang, i) => {
     const y = NAMES_TOP + i * ROW_H;
-    const pct = ((lang.size / totalSize) * 100).toFixed(1);
-    const name = lang.name.length > 16 ? lang.name.slice(0, 15) + "…" : lang.name;
+    const pct = formatLangPct(lang.size, totalSize);
+    const name = truncateToWidth(lang.name, W - PAD * 2 - 60, 13);
 
     const divider = i < languages.length - 1
       ? `<line x1="${PAD}" y1="${y + ROW_H}" x2="${W - PAD}" y2="${y + ROW_H}" stroke="${theme.border}" stroke-width="1" opacity="0.2"/>`
@@ -868,7 +905,7 @@ function renderVerticalListLanguageChart(
     return `${divider}
     <circle cx="${PAD + CIRCLE_R}" cy="${y + ROW_H / 2}" r="${CIRCLE_R}" fill="${lang.color ?? "#586069"}"/>
     <text x="${PAD + CIRCLE_R * 2 + 8}" y="${y + ROW_H / 2 + 4}" class="lc-name">${escapeXml(name)}</text>
-    <text x="${W - PAD}" y="${y + ROW_H / 2 + 4}" class="lc-pct" text-anchor="end">${pct}%</text>`;
+    <text x="${W - PAD}" y="${y + ROW_H / 2 + 4}" class="lc-pct" text-anchor="end">${pct}</text>`;
   });
 
   const titleSvg = options.hide_title
