@@ -719,8 +719,39 @@ export default function CardPreview() {
           </div>
         </div>
 
+        {/* ─── Embed Code ─── */}
+        <div className="grid gap-4 sm:grid-cols-3 animate-slide-up" style={{ animationDelay: "160ms" }}>
+          {[
+            { label: "Link", code: embedUrl, id: "link" },
+            { label: "Markdown", code: markdownCode, id: "md" },
+            { label: "HTML", code: htmlCode, id: "html" },
+          ].map((block) => (
+            <div key={block.id} className="embed-block">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-semibold text-[#8b949e] uppercase tracking-widest">
+                  {block.label}
+                </span>
+                <button
+                  onClick={() => copyToClipboard(block.code, block.id)}
+                  disabled={!embedUrl}
+                  className="copy-btn"
+                >
+                  {copiedField === block.id ? (
+                    <span className="text-[#3fb950] transition-colors duration-200">Copied!</span>
+                  ) : (
+                    "Copy"
+                  )}
+                </button>
+              </div>
+              <pre className="text-xs text-[#c9d1d9] whitespace-pre-wrap break-all leading-relaxed">
+                {block.code}
+              </pre>
+            </div>
+          ))}
+        </div>
+
         {/* ─── Theme Grid ─── */}
-        <div className="animate-slide-up" style={{ animationDelay: "160ms" }}>
+        <div className="animate-slide-up" style={{ animationDelay: "240ms" }}>
           <label className="label-text mb-3 block">Theme</label>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {themeEntries.map(([key, t]) => {
@@ -765,36 +796,6 @@ export default function CardPreview() {
               );
             })}
           </div>
-        </div>
-
-        {/* ─── Embed Code ─── */}
-        <div className="grid gap-4 sm:grid-cols-2 animate-slide-up" style={{ animationDelay: "240ms" }}>
-          {[
-            { label: "Markdown", code: markdownCode, id: "md" },
-            { label: "HTML", code: htmlCode, id: "html" },
-          ].map((block) => (
-            <div key={block.id} className="embed-block">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-semibold text-[#8b949e] uppercase tracking-widest">
-                  {block.label}
-                </span>
-                <button
-                  onClick={() => copyToClipboard(block.code, block.id)}
-                  disabled={!embedUrl}
-                  className="copy-btn"
-                >
-                  {copiedField === block.id ? (
-                    <span className="text-[#3fb950] transition-colors duration-200">Copied!</span>
-                  ) : (
-                    "Copy"
-                  )}
-                </button>
-              </div>
-              <pre className="text-xs text-[#c9d1d9] whitespace-pre-wrap break-all leading-relaxed">
-                {block.code}
-              </pre>
-            </div>
-          ))}
         </div>
       </div>
     </section>
